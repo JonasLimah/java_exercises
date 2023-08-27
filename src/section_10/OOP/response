@@ -1,0 +1,105 @@
+questao 1
+ Scanner input = new Scanner(System.in);
+        System.out.println("Quantos numeros voce vai digitar? ");
+        int n = input.nextInt();
+        double number;
+        double sum = 0.0;
+        double[] listNumber = new double[n];
+        for (int i = 0; i < listNumber.length; i++) {
+            input.nextLine();
+            System.out.println("Digite um numero: ");
+            number = input.nextDouble();
+            listNumber[i] = number;
+        }
+        System.out.println("VALORES =");
+        for (int i = 0; i < listNumber.length; i++) {
+            System.out.println(listNumber[i]);
+        }
+        for (int i = 0; i < listNumber.length; i++) {
+            sum += listNumber[i];
+        }
+        System.out.println("SOMA "+ sum);
+        System.out.printf("MEDIA: %.2f ",sum/n);
+ questao 2
+    Scanner input = new Scanner(System.in);
+           double sum = 0.0;
+           System.out.println("Quantos pessoas serao digitadas? ");
+           int numberPerson = input.nextInt();
+           Person[] listPerson = new Person[numberPerson];
+           for (int i = 0; i < listPerson.length; i++) {
+               input.nextLine();
+               System.out.println("Nome: ");
+               String name = input.nextLine();
+               System.out.println("Idade: ");
+               int age = input.nextInt();
+               System.out.println("Altura: ");
+               double height = input.nextDouble();
+               listPerson[i] = new Person(name, age, height);
+           }
+
+           for (int i = 0; i < listPerson.length; i++) {
+               sum += listPerson[i].getHeight();
+           }
+           double avr = sum / numberPerson;
+           System.out.println("A MEDIA DAS ALTURAS É : " + String.format("%.2f%n", avr));
+           for (int i = 0; i < listPerson.length; i++) {
+               System.out.printf("Dados da %d a pessoa: %n", i + 1);
+               System.out.println(listPerson[i].toString());
+           }
+
+    }
+    questao 3
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Quantos numeros voce vai querer digitar? ");
+        int number = input.nextInt();
+        int[] listNumber = new int[number];
+        for (int i = 0; i < listNumber.length; i++) {
+            input.nextLine();
+            System.out.println("Digite um numero: ");
+            int addNumber = input.nextInt();
+            listNumber[i] = addNumber;
+        }
+        System.out.println("NUMEROS NEGATIVOS: ");
+        for (int i = 0; i < listNumber.length; i++) {
+            if (listNumber[i] < 0) {
+                System.out.println("\n"+listNumber[i]);
+            }
+
+        }
+    }
+
+}
+questao 4
+ public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("How many rooms will br rented");
+        int rooms = input.nextInt();
+        Tenant[] tenants = new Tenant[10];
+
+        for (int i = 0; i < rooms ; i++) {
+
+            System.out.printf("Rent #%d",i+1);
+            System.out.println("\n");
+            input.nextLine();
+            System.out.print("Name: ");
+            String name = input.nextLine();
+            System.out.print("Email: ");
+            String email = input.nextLine();
+            System.out.print("Room: ");
+            int room = input.nextInt();
+            Tenant newTenant = new Tenant(name,email,room);
+            tenants[newTenant.getRoom()] = newTenant;
+
+        }
+        System.out.println("Busy rooms");
+        for (int i = 0; i < tenants.length; i++) {
+            if(tenants[i] != null){
+                System.out.println(i+ ": "+tenants[i]);
+
+            }
+
+        }
+        input.close();
+    }
